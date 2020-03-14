@@ -29,7 +29,10 @@
                 <a href="">
                     <img src="logo.png" alt="">
                 </a>
-  
+            </div>
+
+         
+        </div>
     </header>
     <section class="register-section spad">
         <div class="container">
@@ -37,15 +40,12 @@
                 <div class="col-lg-8">
                     <div class="register-text">
                         <div class="section-title">
-                            <h2>Register Now</h2>
+                            <h2>Log In</h2>
                           
                         </div>
                         <form action="#" class="register-form">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <label for="name"> Name</label>
-                                    <input type="text" id="name">
-                                </div>
+                               
                                 <div class="col-lg-6">
                                     <label for="email">Your email address</label>
                                     <input type="text" id="email">
@@ -54,16 +54,9 @@
                                     <label for="last-name">password</label>
                                     <input type="password" id="last-name">
                                 </div>
-                                <div class="col-lg-6">
-                                    <label for="mobile">birthdate</label>
-                                    <input type="date" id="mobile">
-                                </div>
-                                 <div>
-                                   <label for="coach">coach</label> <input type="radio"  name="gender" value="coach">
-                                   <label for="trainee">trainee</label> <input type="radio" name="gender" value="trainee">
-                                </div>
+                                <br><br><Br><br>  <br><br><Br><br>  <br><br><Br><br>
                             </div>
-                            <button type="submit" class="register-btn">Get Started</button>
+                            <button type="submit" class="register-btn">log in</button>
                         </form>
                     </div>
                 </div>
@@ -77,3 +70,5 @@
     </section>
 </body>
 </html>
+
+
