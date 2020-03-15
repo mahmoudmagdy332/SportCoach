@@ -30,7 +30,11 @@
                     <img src="logo.png" alt="">
                 </a>
             </div>
-
+ <div class="nav-menu">
+       <nav class="mainmenu mobile-menu">
+            <a href="/" class="primary-btn signup-btn">SignUp</a>  
+       </nav>
+  </div>
          
         </div>
     </header>

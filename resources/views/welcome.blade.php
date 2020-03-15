@@ -29,6 +29,13 @@
                 <a href="">
                     <img src="logo.png" alt="">
                 </a>
+             </div>
+  <div class="nav-menu">
+       <nav class="mainmenu mobile-menu">
+            <a href="/login" class="primary-btn signup-btn">Login</a>  
+       </nav>
+  </div>
+</div>
   
     </header>
     <section class="register-section spad">
