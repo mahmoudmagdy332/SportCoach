@@ -22,3 +22,6 @@ Route::get('/login', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/add', function () {
+    return view('add_post');
+});
