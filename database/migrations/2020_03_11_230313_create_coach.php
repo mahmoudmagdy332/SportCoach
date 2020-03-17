@@ -18,7 +18,7 @@ class CreateCoach extends Migration
             $table->string('coach_name');
             $table->string('coach_email');
             $table->string('coach_pass');
-            $table->date('coach_date');
+           $table->Integer('coach_age')->unsigned();
             $table->string('coach_gender');
             $table->timestamps();
         });

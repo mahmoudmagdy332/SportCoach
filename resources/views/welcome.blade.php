@@ -62,12 +62,21 @@
                                     <input type="password" id="last-name">
                                 </div>
                                 <div class="col-lg-6">
-                                    <label for="mobile">birthdate</label>
-                                    <input type="date" id="mobile">
+                                    <label for="mobile">age</label>
+                                    <input type="nomber" id="mobile">
                                 </div>
-                                 <div>
-                                   <label for="coach">coach</label> <input type="radio"  name="gender" value="coach">
-                                   <label for="trainee">trainee</label> <input type="radio" name="gender" value="trainee">
+                                 <div class="col-lg-6">
+                                   <label for="coach">gender</label><select class="form-control" id="Places"name="place">
+									<option>male</option>
+									<option>female</option>
+								</select>
+                                </div>
+                                <div class="col-lg-6">
+                                     <label for="coach">Category</label>
+                           <select class="form-control" id="Places"name="place">
+									<option>coach</option>
+									<option>trainee</option>
+								</select>
                                 </div>
                             </div>
                             <button type="submit" class="register-btn">Get Started</button>

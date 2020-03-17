@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/home', function () {
-    return view('home');
-});
 Route::get('/add', function () {
     return view('add_post');
 });
+Route::get('/home','postcontroller@show_posts');

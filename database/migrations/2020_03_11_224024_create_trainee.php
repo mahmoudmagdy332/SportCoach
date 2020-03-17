@@ -18,7 +18,7 @@ class CreateTrainee extends Migration
             $table->string('trainee_name');
             $table->string('trainee_email');
             $table->string('trainee_pass');
-            $table->date('trainee_date');
+            $table->Integer('trainee_age')->unsigned();
             $table->string('trainee_gender');
             $table->timestamps();
         });

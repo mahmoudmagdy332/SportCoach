@@ -42,18 +42,20 @@
                 <nav class="mainmenu mobile-menu">
                     <ul>
                         <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
+                        <li><a href="/add">About</a></li>
                         <li><a href="./classes.html">Classes</a></li>
                         <li><a href="./blog.html">Blog</a></li>
                         <li><a href="./gallery.html">Gallery</a></li>
                         <li><a href="./contact.html">Contacts</a></li>
                     </ul>
                 </nav>
-                <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                
+                <a href="/add" class="primary-btn signup-btn">write post</a>
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
+    
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
@@ -62,32 +64,31 @@
     <!-- Hero Section End -->
 
     <!-- About Section Begin -->
+    @foreach($posts as $post)
     <section class="about-section spad">
         <div class="container">
             <div class="row">
+                @if($post->post_media)
                 <div class="col-lg-6">
                     <div class="about-pic">
-                        <img src="about-pic.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=SlPhMPnQ58k" class="play-btn video-popup">
-                            <img src="play.png" alt="">
+                        <img src="{{$post->post_media}}" alt="">
+                  
                         </a>
                     </div>
                 </div>
+                @endif
                 <div class="col-lg-6">
                     <div class="about-text">
-                        <h2>Story About Us</h2>
-                        <p class="first-para">Lorem ipsum proin gravida nibh vel velit auctor aliquet. Aenean pretium
-                            sollicitudin, nascetur auci elit consequat ipsutissem niuis sed odio sit amet nibh vulputate
-                            cursus a amet.</p>
-                        <p class="second-para">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, gravida
-                            quam semper libero sit amet. Etiam rhoncus. Maecenas tempus, tellus eget condimentum
-                            rhoncus, gravida quam semper libero sit amet.</p>
-                        <a href="#" class="primary-btn"><i class="fa fa-comment"></i>comment</a> <a href="#" class="primary-btn"><i class="fa fa-thumbs-up"></i>like</a>
+                        <h2>{{$post->coach_name}}</h2>
+                        <p class="first-para">{{ Str::limit($post->post_description, 300)}}</p>
+                        <a href="./index.html">read more</a><br><br>
+                        <a href="/" class="primary-btn" class='col-lg-12'><i class="fa fa-comment"></i>comment</a> <a href="#" class="primary-btn"><i class="fa fa-thumbs-up"></i>like</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endforeach
     <!-- About Section End -->
 
     <!-- Services Section Begin -->

@@ -58,7 +58,7 @@
                                     <label for="last-name">password</label>
                                     <input type="password" id="last-name">
                                 </div>
-                                <br><br><Br><br>  <br><br><Br><br>  <br><br><Br><br>
+                                <br><br><Br><br>  <br><br><Br><br>  <br><br>
                             </div>
                             <button type="submit" class="register-btn">log in</button>
                         </form>
