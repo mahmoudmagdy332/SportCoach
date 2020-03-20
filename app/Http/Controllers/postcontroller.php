@@ -18,6 +18,7 @@ class postcontroller extends Controller
            if ($request->isMethod('POST')){
                $post=new Post();
                $post->post_description = $request['description'];
+               $post->coach_id=1;
                $post->save();
               //  $request->coach()->posts()->save($post);
            }

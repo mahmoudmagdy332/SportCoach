@@ -64,6 +64,7 @@
     <!-- Hero Section End -->
 
     <!-- About Section Begin -->
+     @if(count($posts)>0 ) 
     @foreach($posts as $post)
     <section class="about-section spad">
         <div class="container">
@@ -88,7 +89,18 @@
             </div>
         </div>
     </section>
-    @endforeach
+    @endforeach    
+       @else
+           <section class="about-section spad">
+                 <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Dont Find Any Post</h2>
+                    </div>
+                </div>
+            </div>
+    </section>
+          @endif
     <!-- About Section End -->
 
     <!-- Services Section Begin -->

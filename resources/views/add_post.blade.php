@@ -48,7 +48,7 @@
 
     		<h1>Create post</h1>
 
-    		<form action="add_post" method="POST">
+    		<form action="/add" method="POST">
                     {{ csrf_field() }}
     		    <div class="form-group has-error">
     		        <label for="slug">Slug <span class="require">*</span> <small>(This field use in url path.)</small></label>

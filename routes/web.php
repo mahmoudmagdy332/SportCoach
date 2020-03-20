@@ -20,6 +20,6 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/add_post','postcontroller@WritePost');
-Route::POST('/add_post','postcontroller@WritePost');
+Route::get('/add','postcontroller@WritePost');
+Route::POST('/add','postcontroller@WritePost');
 Route::get('/home','postcontroller@show_posts');
