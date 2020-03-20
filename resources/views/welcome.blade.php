@@ -47,39 +47,51 @@
                             <h2>Register Now</h2>
                           
                         </div>
-                        <form action="#" class="register-form">
+                        <form action="/" class="register-form" method="post">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="name"> Name</label>
-                                    <input type="text" id="name">
+                                    <input type="text" id="name" name="name" required value="{{Request::old('name')}}">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="email">Your email address</label>
-                                    <input type="text" id="email">
+                                    <input type="text" id="email" name="email" required value="{{Request::old('email')}}">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="last-name">password</label>
-                                    <input type="password" id="last-name">
+                                    <input type="password" id="last-name" name="pass" required value="{{Request::old('pass')}}">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="mobile">age</label>
-                                    <input type="nomber" id="mobile">
+                                    <input type="nomber" id="mobile" name="age" required value="{{Request::old('age')}}">
                                 </div>
                                  <div class="col-lg-6">
-                                   <label for="coach">gender</label><select class="form-control" id="Places"name="place">
+                                   <label for="coach">gender</label><select class="form-control" id="Places"name="gender" required>
 									<option>male</option>
 									<option>female</option>
 								</select>
                                 </div>
                                 <div class="col-lg-6">
                                      <label for="coach">Category</label>
-                           <select class="form-control" id="Places"name="place">
+                           <select class="form-control" id="Places"name="place" required>
 									<option>coach</option>
 									<option>trainee</option>
 								</select>
                                 </div>
                             </div>
-                            <button type="submit" class="register-btn">Get Started</button>
+                            <input type="submit" class="register-btn" value="Get Started" onclick="myFunction()">
+                     @if($ar)  
+                 
+                 <script>
+function myFunction() {
+   
+  alert("{{$ar}}");
+
+}
+</script>
+
+@endif
                         </form>
                     </div>
                 </div>

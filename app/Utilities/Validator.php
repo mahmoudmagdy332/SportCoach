@@ -1,7 +1,7 @@
 <?php
 namespace App\Utilities;
 //class to check validation
-abstract class Validator {
+ class Validator {
 
    /*
       check if email is not empty and valid

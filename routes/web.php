@@ -14,12 +14,11 @@ use  App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/login', function () {
     return view('login');
 });
 Route::get('/add','postcontroller@WritePost');
 Route::POST('/add','postcontroller@WritePost');
+Route::get('/','user_controller@add_user');
+Route::post('/','user_controller@add_user');
 Route::get('/home','postcontroller@show_posts');
