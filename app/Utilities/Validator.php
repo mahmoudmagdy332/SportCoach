@@ -73,11 +73,21 @@ abstract class Validator {
     }
 
     /*
-    check if user name is valid or not
+    check if usertype is valid or not
     is trainee or coach
     */
     public static function validateUserType(String $usertype){
         if($usertype != "coach" && $usertype != "trainee")
+            return false;
+        else
+            return true;
+    }
+     /*
+    check if user gender is valid or not
+    is male or female
+    */
+    public static function validateGender(String $gender){
+        if($gender != "male" && $gender != "female")
             return false;
         else
             return true;
