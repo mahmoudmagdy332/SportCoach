@@ -82,6 +82,16 @@ abstract class Validator {
         else
             return true;
     }
+     /*
+    check if user name is valid or not
+    is trainee or coach
+    */
+    public static function validateGender(String $gender){
+        if($gender != "male" && $gender != "female")
+            return false;
+        else
+            return true;
+    }
 
     /*
     check if size of string is longer than 0 and also have anything else
