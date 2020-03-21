@@ -59,15 +59,11 @@ namespace App\Utilities;
      return true if age is valid, otherwise return false
     */
     public static function validateAge(String $age){
-        $uppercase = preg_match('@[A-Z]@', $age);
-        $lowercase = preg_match('@[a-z]@', $age);
-        $specialChars = preg_match('@[^\w]@', $age);
-        if($uppercase || $lowercase || $specialChars )
-            return false;
+        $number    = preg_match('@[0-9]@', $age);
 
-            else if($age >= 16 && $age <= 100){
+        if($number && $age >= 16 && $age <= 100)
             return true;
-        }
+
         else
             return false;
     }
