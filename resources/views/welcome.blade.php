@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 <body>
         <header class="header-section">
@@ -53,18 +58,22 @@
                                 <div class="col-lg-6">
                                     <label for="name"> Name</label>
                                     <input type="text" id="name" name="name" required value="{{Request::old('name')}}">
+                                  <span class="error">{{$ne}}</span>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="email">Your email address</label>
                                     <input type="text" id="email" name="email" required value="{{Request::old('email')}}">
+                                <span class="error">{{$ee}}</span>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="last-name">password</label>
                                     <input type="password" id="last-name" name="pass" required value="{{Request::old('pass')}}">
+                                    <span class="error">{{$pe}}</span>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="mobile">age</label>
                                     <input type="nomber" id="mobile" name="age" required value="{{Request::old('age')}}">
+                                <span class="error">{{$ae}}</span>
                                 </div>
                                  <div class="col-lg-6">
                                    <label for="coach">gender</label><select class="form-control" id="Places"name="gender" required>
@@ -81,18 +90,8 @@
                                 </div>
                             </div>
                             <input type="submit" class="register-btn" value="Get Started" onclick="myFunction()">
-                     @if($ar)  
-                 
-                 <script>
-function myFunction() {
-   
-  alert("{{$ar}}");
-
-}
-</script>
-
-@endif
                         </form>
+
                     </div>
                 </div>
                 <div class="col-lg-4">

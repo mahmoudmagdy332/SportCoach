@@ -1,21 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Utilities\Validator;
 use App\Coach;
 class user_controller extends Controller
 {
   public function add_user(Request $req){
-        $a="";
+        $nameErr=$emailErr=$passErr=$ageErr="";
         if($req->isMethod('post')){
-            $this->validate($req, [
-              'name'  =>'required' 
-              ,'email'  =>'required' 
-            ]);
-         $v=new Validator();
-       if($v->validateUsername($req->input('name')) &&$v->validateEmail($req->input('email')) &&$v->validatePassword($req->input('pass')) &&$v->validateAge($req->input('age'))  )  { 
+    $user = Coach::where('coach_email',$req->input('email'))->first();
+    if ($user != null) {
+  $emailErr="This site already exists"; 
+}
+ $v=new Validator();
+   if($v->validateUsername($req->input('name'))==false){ 
+      $nameErr="Only letters and white space allowed in user name";
+
+  }
+     if($v->validateEmail($req->input('email'))==false){
+           $emailErr="email is wrong";
+
+  }
+       if($v->validatePassword($req->input('pass'))==false){
+          $passErr="Password is weak";
+  }
+         if($v->validateAge($req->input('age'))==false){
+           $ageErr="age is wrong";
+  }
+        
+       if($nameErr==""&&$emailErr==""&&$passErr==""&&$ageErr=="")  { 
             $u=new Coach();
             $u->coach_name=$req->input('name');
             $u->coach_email=$req->input('email');
@@ -25,30 +40,15 @@ class user_controller extends Controller
             $u->save();
             return redirect('/home');
        }
-  
-   elseif($v->validateUsername($req->input('name'))==false){ 
-      $a="user name is wrong";
-       return view('welcome',['ar'=>$a]);
-       
-  }
-     elseif($v->validateEmail($req->input('email'))==false){
-           $a="email is wrong";
-      return view('welcome',['ar'=>$a]);
-       
-  }
-       elseif($v->validatePassword($req->input('pass'))==false){
-          $a="Password is weak";
-       return view('welcome',['ar'=>$a]);
-       
-  }
-         elseif($v->validateAge($req->input('age'))==false){
-           $a="age is wrong";
-  return view('welcome',['ar'=>$a]);
-       
-  }
+       else{
+           $arr=array('ne'=>$nameErr,'ee'=>$emailErr,'pe'=>$passErr,'ae'=>$ageErr);
+           return view('welcome',$arr);  
+
+       }
          }
       else{  
-        return view('welcome',['ar'=>$a]);
+       $arr=array('ne'=>$nameErr,'ee'=>$emailErr,'pe'=>$passErr,'ae'=>$ageErr);
+      return view('welcome',$arr);  
        
   }
 }
