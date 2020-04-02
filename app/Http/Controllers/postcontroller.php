@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Comment;
+use App\Utilities\Validator;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\DB;
 class postcontroller extends Controller
@@ -23,5 +25,24 @@ class postcontroller extends Controller
               //  $request->coach()->posts()->save($post);
            }
            return view('add_post');
+   }
+
+    public function WriteComment(Request $request){
+           //only execute when POST
+
+          $val= new Validator();
+           if ($request->isMethod('POST')){
+            if($val->validateCommentOrPost($request->input('description'))){
+               $comment=new Comment();
+               $comment->comment_description = $request->input('description');
+               $comment->comment_id=1;
+               $comment->post_id=1;
+               $comment->trainee_id=1;
+               $comment->post_rank=1;
+
+               $comment->save();
+              //  $request->coach()->posts()->save($post);
+           }}
+           return view('home');
    }
 }
