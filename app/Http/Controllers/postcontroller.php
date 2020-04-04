@@ -24,7 +24,32 @@ class postcontroller extends Controller
            }
            return view('add_post');
    }
-      public function search(Request $request){
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+         public function search(Request $request){
           $q=$request['q'];
          if($q!="") {
              $p=DB::table('posts')->where('post_description','LIKE','%'.$q.'%')->get();
@@ -33,4 +58,5 @@ class postcontroller extends Controller
              }
          }
       }
+
 }
