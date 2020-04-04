@@ -71,7 +71,8 @@
     		    </div>
     		     <div class="form-group">
                          <label for="description">Add  picture</label>
-                         <input type="file" placeholder="Add profile picture" name="file"  />
+                         <input type="file" placeholder="Add profile picture" name="file" id="im" onchange="fu()"/>
+                         <img id="myImg"width="107" height="98">
     		    </div>
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-primary">
@@ -84,7 +85,13 @@
 
     		</form>
 		</div>
+            <script>
+           function fu(){
+                 var x=document.getElementById("im").files[0].name; 
 
+ document.getElementById("myImg").src = "../../"+x;
+ }
+            </script>
 	</div>
 </div>
                </section>

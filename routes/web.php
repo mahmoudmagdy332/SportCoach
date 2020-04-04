@@ -22,3 +22,4 @@ Route::POST('/add','postcontroller@WritePost');
 Route::get('/','user_controller@add_user');
 Route::post('/','user_controller@add_user');
 Route::get('/home','postcontroller@show_posts');
+Route::post('/search','postcontroller@search');

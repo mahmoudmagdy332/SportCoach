@@ -43,10 +43,12 @@
                     <ul>
                         <li class="active"><a href="./index.html">Home</a></li>
                         <li><a href="/add">About</a></li>
-                        <li><a href="./classes.html">Classes</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li><form action="/search" method="post">
+                                {{ csrf_field() }}
+                                <input type="text" name="q">
+                                <input type="submit" value="search">
+                            </form></li>
+                       
                     </ul>
                 </nav>
                 
