@@ -7,7 +7,7 @@
     <meta name="keywords" content="Gutim, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gutim | Template</title>
+    <title>Sports Coach</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 
 <body>
@@ -71,8 +69,7 @@
     		    </div>
     		     <div class="form-group">
                          <label for="description">Add  picture</label>
-                         <input type="file" placeholder="Add profile picture" name="file" id="im" onchange="fu()"/>
-                         <img id="myImg"width="107" height="98">
+                         <input type="file" placeholder="Add profile picture" name="file"  />
     		    </div>
     		    <div class="form-group">
     		        <button type="submit" class="btn btn-primary">
@@ -85,13 +82,7 @@
 
     		</form>
 		</div>
-            <script>
-           function fu(){
-                 var x=document.getElementById("im").files[0].name; 
 
- document.getElementById("myImg").src = "../../"+x;
- }
-            </script>
 	</div>
 </div>
                </section>

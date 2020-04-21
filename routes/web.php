@@ -19,7 +19,7 @@ Route::get('/login', function () {
 });
 Route::get('/add','postcontroller@WritePost');
 Route::POST('/add','postcontroller@WritePost');
+Route::post('/addComment','postcontroller@WriteComment');
 Route::get('/','user_controller@add_user');
 Route::post('/','user_controller@add_user');
 Route::get('/home','postcontroller@show_posts');
-Route::post('/search','postcontroller@search');
