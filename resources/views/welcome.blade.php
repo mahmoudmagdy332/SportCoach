@@ -27,9 +27,12 @@
     </style>
 </head>
 <body>
+ @if(session()->has('user'))
+       <h2>this page not found</h2>
+                             @else
         <header class="header-section">
         <div class="container">
-           
+
             <div class="logo">
                 <a href="">
                     <img src="logo.png" alt="">
@@ -37,11 +40,11 @@
              </div>
   <div class="nav-menu">
        <nav class="mainmenu mobile-menu">
-            <a href="/login" class="primary-btn signup-btn">Login</a>  
+            <a href="/login" class="primary-btn signup-btn">Login</a>
        </nav>
   </div>
 </div>
-  
+
     </header>
     <section class="register-section spad">
         <div class="container">
@@ -50,7 +53,7 @@
                     <div class="register-text">
                         <div class="section-title">
                             <h2>Register Now</h2>
-                          
+
                         </div>
                         <form action="/" class="register-form" method="post">
                             {{ csrf_field() }}
@@ -102,5 +105,6 @@
             </div>
         </div>
     </section>
+     @endif
 </body>
 </html>

@@ -18,7 +18,7 @@ class CreateFollow extends Migration
             $table->Integer('coach_id')->unsigned();
              $table->foreign('coach_id')->references('coach_id')->on('coaches');
              $table->Integer('trainee_id')->unsigned();
-             $table->foreign('trainee_id')->references('trainee_id')->on('trainees');
+             $table->foreign('trainee_id')->references('coach_id')->on('coaches');
             $table->timestamps();
         });
     }

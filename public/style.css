@@ -31,7 +31,9 @@
 
 /* Template default CSS
 /*----------------------------------------*/
-
+.hidden{
+display:none;
+}
 html, body {
 	height: 100%;
 	font-family: "Poppins", sans-serif;
@@ -120,7 +122,7 @@ ul, ol {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: 600;
-	padding: 0 12px;
+	padding: 12 12 12 12px;
 	color: #ffffff;
 	text-align: center;
 	width: 160px;
@@ -232,7 +234,7 @@ ul, ol {
 }
 .nav-menu {
 	float: right;
-        
+
 }
 .nav-menu .mainmenu {
 	display: inline-block;
@@ -278,6 +280,21 @@ ul, ol {
 .slicknav_menu {
 	display: none;
 }
+
+
+.nav-men .mainmenu ul li {
+	list-style: none;
+	display: inline-block;
+	margin-right: 10px;
+}
+.nav-men .mainmenu .b {
+	background-color: red;
+}
+
+
+
+
+
 /*---------------------
   Hero Section
 -----------------------*/
@@ -1609,7 +1626,7 @@ ul, ol {
 @media only screen and (min-width: 1200px) {
 	.container {
 		max-width: 1170px;
-               
+
 	}
 }
 /* Medium Device: 1200px */

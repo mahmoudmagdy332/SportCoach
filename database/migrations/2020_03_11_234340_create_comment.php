@@ -16,7 +16,7 @@ class CreateComment extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('comment_id');
             $table->longText('comment_description')->nullable();
-            $table->float('post_rank')->unsigned();
+            $table->float('post_rank')->unsigned()->nullable();
             $table->Integer('post_id')->unsigned();
             $table->foreign('post_id')->references('post_id')->on('posts');
             $table->Integer('trainee_id')->unsigned();
