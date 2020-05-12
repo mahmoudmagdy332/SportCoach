@@ -22,9 +22,12 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+ @if(session()->has('user'))
+       <h2>this page not found</h2>
+                             @else
         <header class="header-section">
         <div class="container">
-           
+
             <div class="logo">
                 <a href="">
                     <img src="logo.png" alt="">
@@ -32,12 +35,13 @@
             </div>
  <div class="nav-menu">
        <nav class="mainmenu mobile-menu">
-            <a href="/" class="primary-btn signup-btn">SignUp</a>  
+            <a href="/" class="primary-btn signup-btn">SignUp</a>
        </nav>
   </div>
-         
+
         </div>
     </header>
+
     <section class="register-section spad">
         <div class="container">
             <div class="row">
@@ -45,23 +49,27 @@
                     <div class="register-text">
                         <div class="section-title">
                             <h2>Log In</h2>
-                          
+
                         </div>
-                        <form action="#" class="register-form">
+
+
+                        <form action="login" class="register-form" method="post">
+                         {{ csrf_field() }}
                             <div class="row">
-                               
+
                                 <div class="col-lg-6">
                                     <label for="email">Your email address</label>
-                                    <input type="text" id="email">
+                                    <input type="text" id="email" name="email">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="last-name">password</label>
-                                    <input type="password" id="last-name">
+                                    <input type="password" id="last-name" name="pass">
                                 </div>
                                 <br><br><Br><br>  <br><br><Br><br>  <br><br>
                             </div>
                             <button type="submit" class="register-btn">log in</button>
                         </form>
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -72,6 +80,7 @@
             </div>
         </div>
     </section>
+      @endif
 </body>
 </html>
 

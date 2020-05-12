@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 
 <body>
+@if(session()->has('user'))
 
+ $e=session()->get('mode');
         <header class="header-section">
         <div class="container">
 
@@ -45,22 +45,19 @@
 	<div class="row">
 
 	    <div class="col-md-8 col-md-offset-2">
-
+@if(session()->get('mode')[0]['m']==1)
     		<h1>Create post</h1>
-
+               @else
+               <h1>ask quition</h1>
+@endif
     		<form action="/add" method="POST">
                     {{ csrf_field() }}
-    		    <div class="form-group has-error">
-    		        <label for="slug">Slug <span class="require">*</span> <small>(This field use in url path.)</small></label>
-    		        <input type="text" class="form-control" name="slug" />
-    		        <span class="help-block">Field not entered!</span>
-    		    </div>
-
+@if(session()->get('mode')[0]['m']==1)
     		    <div class="form-group">
     		        <label for="title">Title <span class="require">*</span></label>
     		        <input type="text" class="form-control" name="title" />
     		    </div>
-
+@endif
     		    <div class="form-group">
     		        <label for="description">Description</label>
     		        <textarea rows="5" class="form-control" name="description" ></textarea>
@@ -74,6 +71,7 @@
                          <input type="file" placeholder="Add profile picture" name="file"  />
     		    </div>
     		    <div class="form-group">
+                        
     		        <button type="submit" class="btn btn-primary">
     		            Create
     		        </button>
@@ -88,5 +86,8 @@
 	</div>
 </div>
                </section>
+                @else
+                 <h2>this page not found</h2>
+                @endif
 </body>
 </html>
