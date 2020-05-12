@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use App\Coach;
 use App\Post;
 use App\Comment;
-<<<<<<< HEAD
+
 use App\Question;
-=======
->>>>>>> 15a78d0b45aa1d7883c0baa3216fdde888aba69e
+
+
 use App\Utilities\Validator;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\DB;
@@ -56,11 +56,11 @@ class postcontroller extends Controller
            return view('add_post');
    }
 
-<<<<<<< HEAD
-    public function WriteComment(Request $request,$id){
-=======
+
+   
+
     public function WriteComment(Request $request){
->>>>>>> 15a78d0b45aa1d7883c0baa3216fdde888aba69e
+
            //only execute when POST
 
           $val= new Validator();
@@ -68,7 +68,7 @@ class postcontroller extends Controller
             if($val->validateCommentOrPost($request->input('description'))){
                $comment=new Comment();
                $comment->comment_description = $request->input('description');
-<<<<<<< HEAD
+
                $comment->post_id=$id;
                $comment->trainee_id=session()->get('user')[0]->trainee_id;
            
@@ -92,8 +92,7 @@ class postcontroller extends Controller
          $c= Comment::where('post_id',$id)->get();
            $arr=Array('comments'=>$c,'post'=>$id);
          return view('comment',$arr);
-      }
-=======
+      
                $comment->comment_id=1;
                $comment->post_id=1;
                $comment->trainee_id=1;
@@ -101,8 +100,10 @@ class postcontroller extends Controller
 
                $comment->save();
               //  $request->coach()->posts()->save($post);
-           }}
+           
            return view('home');
-   }
->>>>>>> 15a78d0b45aa1d7883c0baa3216fdde888aba69e
+   
+
+      }
+
 }
