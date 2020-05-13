@@ -43,6 +43,10 @@ class user_controller extends Controller
             $u->coach_age=$req->input('age');
             $u->coach_gender=$req->input('gender');
             $u->save();
+             $uc = Coach::where('coach_email',$req->input('email'))->first();
+             session()->push("user", $uc);
+             session()->push("mode", ['m'=>1]);
+             $e=session()->get('mode');
             }
             else{
             $u=new Trainee();
@@ -52,6 +56,11 @@ class user_controller extends Controller
             $u->trainee_age=$req->input('age');
             $u->trainee_gender=$req->input('gender');
             $u->save();
+            $ut = Trainee::where('trainee_email',$req->input('email'))->first();
+            session()->push("user", $ut);
+               
+               session()->push("mode", ['m'=>0]);
+               $e=session()->get('mode');
             }
             return redirect('/home');
        }
