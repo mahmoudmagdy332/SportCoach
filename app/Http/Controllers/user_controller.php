@@ -7,7 +7,7 @@ use App\Utilities\Validator;
 use App\Coach;
 use App\Trainee;
 use \App\Follow;
-       
+
 class user_controller extends Controller
 {
   public function add_user(Request $req){
@@ -16,22 +16,21 @@ class user_controller extends Controller
     $user1 = Coach::where('coach_email',$req->input('email'))->first();
     $user2 = Trainee::where('trainee_email',$req->input('email'))->first();
     if ($user1 != null &&$user2 != null) {
-  $emailErr="This site already exists";
+  $emailErr="This email address is already exists";
 }
- $v=new Validator();
-   if($v->validateUsername($req->input('name'))==false){
+   if(Validator::validateUsername($req->input('name'))==false){
       $nameErr="Only letters and white space allowed in user name";
 
   }
-     if($v->validateEmail($req->input('email'))==false){
-           $emailErr="email is wrong";
+     if(Validator::validateEmail($req->input('email'))==false){
+           $emailErr="Email is wrong";
 
   }
-       if($v->validatePassword($req->input('pass'))==false){
+       if(Validator::validatePassword($req->input('pass'))==false){
           $passErr="Password is weak";
   }
-         if($v->validateAge($req->input('age'))==false){
-           $ageErr="age is wrong";
+         if(Validator::validateAge($req->input('age'))==false){
+           $ageErr="Only numbers, and must be bigger than 16 years";
   }
 
        if($nameErr==""&&$emailErr==""&&$passErr==""&&$ageErr=="")  {
@@ -58,7 +57,7 @@ class user_controller extends Controller
             $u->save();
             $ut = Trainee::where('trainee_email',$req->input('email'))->first();
             session()->push("user", $ut);
-               
+
                session()->push("mode", ['m'=>0]);
                $e=session()->get('mode');
             }
@@ -91,7 +90,7 @@ class user_controller extends Controller
               }
               if($ut!=null) {
                 session()->push("user", $ut);
-               
+
                session()->push("mode", ['m'=>0]);
                $e=session()->get('mode');
                }
@@ -115,7 +114,7 @@ class user_controller extends Controller
            return redirect('profile'.$id);
             //  return $id;
        }
-   
+
 
        public function profile($id){
      $e=session()->get('user');

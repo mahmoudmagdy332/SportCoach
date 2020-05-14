@@ -17,7 +17,7 @@ class CreatePost extends Migration
              $table->bigIncrements('post_id');
              $table->longText('post_description')->nullable();
              $table->string('post_media')->nullable();
-             $table->Integer('coach_id')->unsigned();
+             $table->bigInteger('coach_id')->unsigned();
              $table->foreign('coach_id')->references('coach_id')->on('coaches');
             $table->timestamps();
         });

@@ -1,14 +1,14 @@
 <?php
 namespace App\Utilities;
 //class to check validation
-  class Validator {
+  abstract class Validator {
 
    /*
       check if email is not empty and valid
       if email is not valid, will return false(boolean)
       if email is valid and not empty, will return true(boolean)
       */
-    public  function validateEmail(String $email)
+    public static function validateEmail(String $email)
     {
         if(empty($email))
             return false;
@@ -26,7 +26,7 @@ namespace App\Utilities;
       if email is not valid, will return false(boolean)
       if email is valid, will return true(boolean)
       */
-    public  function validateUsername(String $username){
+    public static function validateUsername(String $username){
         if(preg_match('/^\w{5,}$/', $username)) {
             return true;
         }
@@ -40,7 +40,7 @@ namespace App\Utilities;
     Password must include at least one number.
     Password must include at least one special characte
     */
-    public  function validatePassword(String $password){
+    public static function validatePassword(String $password){
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $number    = preg_match('@[0-9]@', $password);
@@ -72,7 +72,7 @@ namespace App\Utilities;
     check if usertype is valid or not
     is trainee or coach
     */
-    public  function validateUserType(String $usertype){
+    public static function validateUserType(String $usertype){
         if($usertype != "coach" && $usertype != "trainee")
             return false;
         else
@@ -82,7 +82,7 @@ namespace App\Utilities;
     check if user gender is valid or not
     is male or female
     */
-    public  function validateGender(String $gender){
+    public static function validateGender(String $gender){
         if($gender != "male" && $gender != "female")
             return false;
         else
@@ -93,7 +93,7 @@ namespace App\Utilities;
     check if size of string is longer than 0 and also have anything else
     except white-space.
     */
-    public  function validateCommentOrPost(String $comment)
+    public static function validateCommentOrPost(String $comment)
     {
       $size = strlen($comment);
       for($i = 0; $i < $size; $i++)
