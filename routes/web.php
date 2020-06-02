@@ -28,6 +28,8 @@ Route::post('/login','user_controller@login');
 Route::get('/logout','user_controller@logout');
 Route::post('/comment{id}','postcontroller@WriteComment');
 Route::get('/comment{id}','postcontroller@show_comments');
+Route::get('/like/{id}','postcontroller@like');
+Route::get('/dislike/{id}','postcontroller@dislike');
 Route::get('/follow/{id}', function ($id){
         $f=new Follow();
             $e=session()->get('user');

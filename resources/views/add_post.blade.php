@@ -29,16 +29,32 @@
 
  $e=session()->get('mode');
         <header class="header-section">
-        <div class="container">
-
-            <div class="logo">
+            <div class="container">
+             <div class="logo">
                 <a href="">
                     <img src="logo.png" alt="">
                 </a>
             </div>
+        <div class="nav-menu">
+                <nav class="mainmenu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="/home">Home</a></li>
+                        <li class="active"><a href="logout">logout</a></li>
+                        <li><form action='search' method="post">
+                         {{ csrf_field() }}
+                        <input type="text" name="q">
+                        <input type="submit" value="search">
+                        </form></li>
 
-
-        </div>
+                    </ul>
+                </nav>
+            
+              @if(session()->get('mode')[0]['m']==1)
+                <a href="/add" class="primary-btn signup-btn">write post</a>
+              @else
+              <a href="/add" class="primary-btn signup-btn">ask quetion</a>
+              @endif
+            </div>
     </header>
         <section class="register-section spad">
     <div class="container">

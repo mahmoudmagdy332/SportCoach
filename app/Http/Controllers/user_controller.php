@@ -7,6 +7,7 @@ use App\Utilities\Validator;
 use App\Coach;
 use App\Trainee;
 use \App\Follow;
+use \App\Post;
        
 class user_controller extends Controller
 {
@@ -15,7 +16,7 @@ class user_controller extends Controller
         if($req->isMethod('post')){
     $user1 = Coach::where('coach_email',$req->input('email'))->first();
     $user2 = Trainee::where('trainee_email',$req->input('email'))->first();
-    if ($user1 != null &&$user2 != null) {
+    if ($user1 != null ||$user2 != null) {
   $emailErr="This site already exists";
 }
  $v=new Validator();
@@ -119,8 +120,12 @@ class user_controller extends Controller
 
        public function profile($id){
      $e=session()->get('user');
+
  $f= \App\Follow::where('trainee_id',$e[0]->trainee_id)->where('coach_id',$id)->first();
- $arr=Array('follow'=>$f,'id'=>$id);
+ 
+  $p= Post::leftJoin('likes','likes.post_id','posts.post_id')->where('coach_id',$id)->get();
+                $arr=Array('follow'=>$f,'id'=>$id,'posts'=>$p);
+   
         return view('profile',$arr);
 //if($f==null){$r=1;}else{$r=0;}
     //return $r;

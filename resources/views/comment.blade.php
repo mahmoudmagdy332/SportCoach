@@ -43,7 +43,7 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="comment">Home</a></li>
+                        <li class="active"><a href="/home">Home</a></li>
                         <li class="active"><a href="logout">logout</a></li>
                         <li><form action='search' method="post">
                          {{ csrf_field() }}
@@ -108,12 +108,13 @@
     <!-- Header Section Begin -->
 
                  <div class="table-history-user">
-    <table >
+                     <table class="">
 @foreach($comments as $comment)
             <tr>
              
-  
+            
             <td>{{$comment->comment_description}}</td>
+         
     
               </tr>
 @endforeach
