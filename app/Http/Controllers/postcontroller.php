@@ -26,8 +26,11 @@ class postcontroller extends Controller
 
  $e=session()->get('user');
  $p=DB::table('trainees')->join('follows','trainees.trainee_id','follows.trainee_id')->join('coaches','coaches.coach_id','follows.coach_id')
-  ->join('posts','coaches.coach_id','posts.coach_id')->leftjoin('likes','likes.post_id','=','posts.post_id','trainees.trainee_id','=','likes.trainee_id')
-   ->where('trainees.trainee_id',$e[0]->trainee_id)
+  ->join('posts','coaches.coach_id','posts.coach_id')->leftjoin('likes',function($join){
+          $join->on('likes.post_id','=','posts.post_id');
+          $join->on('trainees.trainee_id','=','likes.trainee_id');
+  
+  })->where('trainees.trainee_id',$e[0]->trainee_id)
          ->select('posts.post_description','posts.post_media','coaches.coach_name','posts.post_id','posts.post_rank','likes.like','likes.dislike')->get();
       $arr=Array('posts'=>$p,'coaches'=>$c);
         return view('home',$arr) ;
