@@ -17,7 +17,7 @@ class CreateQuestion extends Migration
             $table->bigIncrements('question_id');
              $table->longText('question_description')->nullable();
              $table->string('question_media')->nullable();
-             $table->Integer('trainee_id')->unsigned();
+             $table->bigInteger('trainee_id')->unsigned();
              $table->foreign('trainee_id')->references('trainee_id')->on('trainees');
             $table->timestamps();
         });

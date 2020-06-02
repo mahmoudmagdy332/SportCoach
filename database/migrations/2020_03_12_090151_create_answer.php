@@ -17,9 +17,9 @@ class CreateAnswer extends Migration
             $table->bigIncrements('arnswer_id');
             $table->longText('arnswer_description')->nullable();
             $table->float('rank')->unsigned();
-            $table->Integer('question_id')->unsigned();
+            $table->bigInteger('question_id')->unsigned();
             $table->foreign('question_id')->references('question_id')->on('questions');
-            $table->Integer('coach_id')->unsigned();
+            $table->bigInteger('coach_id')->unsigned();
             $table->foreign('coach_id')->references('coach_id')->on('coaches');
             $table->timestamps();
         });
